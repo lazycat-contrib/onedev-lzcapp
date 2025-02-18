@@ -1,0 +1,28 @@
+lzc-sdk-version: "0.1"
+name: OneDev
+package: cloud.lazycat.app.onedev
+version: 11.6.16
+description: 一个开源的一体化的 DevOps 平台
+homepage: https://onedev.io
+author: onedev
+application:
+  subdomain: onedev
+  background_task: true
+  multi_instance: false
+  gpu_accel: false
+  kvm_accel: false
+  usb_accel: false
+  routes:
+    - /=http://onedev-server.cloud.lazycat.app.onedev.lzcapp:6610/
+  ingress:
+    - protocol: tcp
+      port: 6611
+      service: onedev-server
+services:
+  onedev-server:
+    image: registry.lazycat.cloud/czyt/1dev/server:579116b5fae91b74
+    binds:
+      - /lzcapp/var/docker.sock:/var/run/docker.sock
+      - /lzcapp/var/onedev:/opt/onedev
+    environment:
+      - initial_server_url=https://${LAZYCAT_APP_DOMAIN}

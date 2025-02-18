@@ -1,0 +1,39 @@
+{
+  "name": "OneDev",
+  "package": "cloud.lazycat.app.onedev",
+  "description": "一个开源的一体化的 DevOps 平台",
+  "homepage": "https://onedev.io",
+  "author": "onedev",
+  "app_features": [
+    "background_task"
+  ],
+  "subdomain": "onedev",
+  "version": "11.6.16",
+  "iconPath": "icon.png",
+  "composePath": "docker-compose.yml",
+  "unsupported_platforms": [],
+  "lastRouteType": "from_compose",
+  "port_mappings": {
+    "onedev-server_6610_6610": {
+      "use": true,
+      "type": "http",
+      "path": "/",
+      "targetPath": "/"
+    },
+    "onedev-server_6611_6611": {
+      "use": true,
+      "type": "port",
+      "protocol": "tcp"
+    }
+  },
+  "image_1dev_server": {
+    "originalImage": "1dev/server",
+    "pushTarget": "lazycat",
+    "newImageName": "registry.lazycat.cloud/czyt/1dev/server:579116b5fae91b74",
+    "timestamp": "2025-02-18T14:06:26.532Z"
+  },
+  "onedev-server_volume_/var/run/docker.sock_action": "emptyDir",
+  "onedev-server_volume_/var/run/docker.sock_location": "app_data",
+  "onedev-server_volume_/opt/onedev_action": "emptyDir",
+  "onedev-server_volume_/opt/onedev_location": "app_data"
+}
