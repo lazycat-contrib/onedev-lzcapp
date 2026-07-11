@@ -1,0 +1,44 @@
+version: 1
+
+project:
+  root: .
+  build_config: lzc-build.yml
+  package_file: package.yml
+  output: dist/onedev.lpk
+
+update:
+  strategy: publish
+  allow_downgrade: false
+  version_source:
+    type: image
+    image: onedev
+
+build:
+  run_buildscript: false
+
+images:
+  - id: onedev
+    target: service
+    service: onedev-server
+    source: 1dev/server
+    channel: stable
+    tag_regex: '^v?[0-9]+\.[0-9]+\.[0-9]+$'
+    delivery:
+      mode: lazycat
+
+stores:
+  official:
+    enabled: true
+    skip_if_version_exists: true
+    create_if_missing: true
+    changelog_locales: [zh, en]
+    application:
+      language: zh
+      name: OneDev
+      source: https://onedev.io
+      source_author: onedev
+  private:
+    enabled: true
+    skip_if_version_exists: true
+    name: OneDev
+    summary: 开源一体化 DevOps 平台
