@@ -12,11 +12,11 @@ application:
     - protocol: tcp
       port: 6611
       service: onedev-server
-
 services:
   onedev-server:
     # 1dev/server:11.6.16
-    image: registry.lazycat.cloud/czyt/1dev/server:579116b5fae91b74
+    # upstream: 1dev/server:16.0.5
+    image: registry.lazycat.cloud/czyt/1dev/server:e7b9478e846e891e
     binds:
       - /lzcapp/var/docker.sock:/var/run/docker.sock
       - /lzcapp/var/onedev:/opt/onedev
