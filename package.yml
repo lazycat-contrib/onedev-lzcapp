@@ -1,5 +1,5 @@
 package: cloud.lazycat.app.onedev
-version: 16.1.0
+version: 16.2.0
 name: OneDev
 description: 一个开源的一体化 DevOps 平台
 min_os_version: 1.5.0
