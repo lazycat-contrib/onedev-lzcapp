@@ -15,8 +15,8 @@ application:
 services:
   onedev-server:
     # 1dev/server:11.6.16
-    # upstream: 1dev/server:16.3.1
-    image: registry.lazycat.cloud/czyt/1dev/server:d8a6c736a4c4b3d6
+    # upstream: 1dev/server:16.3.3
+    image: registry.lazycat.cloud/czyt/1dev/server:d2500763b99cc589
     binds:
       - /lzcapp/var/docker.sock:/var/run/docker.sock
       - /lzcapp/var/onedev:/opt/onedev
