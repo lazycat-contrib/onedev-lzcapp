@@ -1,0 +1,42 @@
+params:
+  - id: initial_user
+    type: string
+    name: "Administrator Login Name"
+    description: "Login name of the administrator account"
+    default_value: "admin"
+    optional: false
+
+  - id: initial_password
+    type: secret
+    name: "Administrator Password"
+    description: "Password of the administrator account"
+    default_value: "$random(len=20)"
+    optional: false
+
+  - id: initial_email
+    type: string
+    name: "Administrator Email"
+    description: "Email address of the administrator account"
+    optional: false
+
+locales:
+  en:
+    initial_user:
+      name: "Administrator Login Name"
+      description: "Login name of the administrator account"
+    initial_password:
+      name: "Administrator Password"
+      description: "Password of the administrator account"
+    initial_email:
+      name: "Administrator Email"
+      description: "Email address of the administrator account"
+  zh:
+    initial_user:
+      name: "管理员登录名"
+      description: "管理员账户的登录名"
+    initial_password:
+      name: "管理员密码"
+      description: "管理员账户的密码"
+    initial_email:
+      name: "管理员邮箱"
+      description: "管理员账户的电子邮箱地址"
