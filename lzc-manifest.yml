@@ -8,6 +8,16 @@ application:
   upstreams:
     - location: /
       backend: http://onedev-server:6610/
+  injects:
+    - id: login-autofill
+      on: browser
+      when:
+        - /~login
+      do:
+        - src: builtin://simple-inject-password
+          params:
+            user: {{ .U.initial_user }}
+            password: {{ .U.initial_password }}
   ingress:
     - protocol: tcp
       port: 6611
@@ -22,3 +32,6 @@ services:
       - /lzcapp/var/onedev:/opt/onedev
     environment:
       - initial_server_url=https://${LAZYCAT_APP_DOMAIN}
+      - {{ printf "initial_user=%s" .U.initial_user | quote }}
+      - {{ printf "initial_password=%s" .U.initial_password | quote }}
+      - {{ printf "initial_email=%s" .U.initial_email | quote }}
